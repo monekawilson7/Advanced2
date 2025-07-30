@@ -58,11 +58,18 @@ namespace Advanced2
                   }*/
             #endregion
             #region Q4
-            String input = "[()]{()}";
-            if (IsBalanced(input))
-                Console.WriteLine("Balanced");
-            else
-                Console.WriteLine("Not Balanced");
+            /*            String input = "[()]{()}";
+                        if (IsBalanced(input))
+                            Console.WriteLine("Balanced");
+                        else
+                            Console.WriteLine("Not Balanced");*/
+            #endregion
+            #region Q5
+            int[] arr = { 11, 5, 2, 11, 2, 7, 1, 11 };
+            int [] result = RemoveDuplicates(arr);
+            foreach (int i in result) {
+                Console.WriteLine(i);
+            }
             #endregion
         }
 
@@ -103,5 +110,14 @@ namespace Advanced2
             return stack.Count == 0;
         }
         #endregion
-}
+        #region Q5
+        static int[] RemoveDuplicates(int[] arr) { 
+        HashSet<int> uniqueElements = new HashSet<int>();
+            foreach (int i in arr) { 
+            uniqueElements.Add(i);
+            }
+            return new List<int>(uniqueElements).ToArray();
+        }
+        #endregion
+    }
 }

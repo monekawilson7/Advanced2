@@ -65,16 +65,25 @@ namespace Advanced2
                             Console.WriteLine("Not Balanced");*/
             #endregion
             #region Q5
-/*            int[] arr = { 11, 5, 2, 11, 2, 7, 1, 11 };
-            int [] result = RemoveDuplicates(arr);
-            foreach (int i in result) {
-                Console.WriteLine(i);
-            }*/
+            /*            int[] arr = { 11, 5, 2, 11, 2, 7, 1, 11 };
+                        int [] result = RemoveDuplicates(arr);
+                        foreach (int i in result) {
+                            Console.WriteLine(i);
+                        }*/
             #endregion
             #region Q6
-            List<int> list = new List<int> { 1,2,3,4,5,6,7};
-            RemoveOddNum(list);
-            Console.WriteLine(String.Join(", ",list));
+            /*            List<int> list = new List<int> { 1,2,3,4,5,6,7};
+                        RemoveOddNum(list);
+                        Console.WriteLine(String.Join(", ",list));*/
+            #endregion
+            #region Q7
+            Queue<object> queue = new Queue<object>();
+            queue.Enqueue(1);
+            queue.Enqueue("Apple");
+            queue.Enqueue(5.26);
+            foreach (object item in queue) {
+                Console.WriteLine(item);
+            }
             #endregion
         }
 
@@ -128,6 +137,9 @@ namespace Advanced2
         static void RemoveOddNum(List<int> list) {
             list.RemoveAll(number => number % 2 != 0);
         }
+
+        #endregion
+        #region Q
 
         #endregion
     }

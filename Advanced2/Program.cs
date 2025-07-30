@@ -87,7 +87,7 @@ namespace Advanced2
                         }*/
             #endregion
             #region Q8
-            Stack<int> stack = new Stack<int>();
+/*            Stack<int> stack = new Stack<int>();
             stack.Push(1);
             stack.Push(2);
             stack.Push(3);
@@ -114,7 +114,13 @@ namespace Advanced2
             if (!found)
             {
                 Console.WriteLine($"{target} not found");
-            }
+            }*/
+            #endregion
+            #region Q9
+            int[] nums1= { 1, 2, 3, 4, 4 };
+            int[] nums2 = { 10, 4, 4 };
+            List<int> result = FindIntersection(nums1,nums2);
+            Console.WriteLine("["+string.Join(",", result)+ "]");
             #endregion
         }
 
@@ -170,8 +176,24 @@ namespace Advanced2
         }
 
         #endregion
-        #region Q
-
+        #region Q9
+        static List<int> FindIntersection(int[] numbers1, int[] numbers2) { 
+        Dictionary<int, int> intersection = new Dictionary<int, int>();
+            List<int> list = new List<int>();
+            foreach (int number in numbers1) {
+                if (intersection.ContainsKey(number))
+                    intersection[number]++;
+                else
+                    intersection[number] = 1;
+            }
+            foreach (int number in numbers2) {
+                if (intersection.ContainsKey(number) && intersection[number] > 0) { 
+                list.Add(number);
+                    intersection[number]--;
+                }
+            }
+            return list;
+        }
         #endregion
     }
 }

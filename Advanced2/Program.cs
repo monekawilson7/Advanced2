@@ -88,45 +88,53 @@ namespace Advanced2
                         }*/
             #endregion
             #region Q8
-/*            Stack<int> stack = new Stack<int>();
-            stack.Push(1);
-            stack.Push(2);
-            stack.Push(3);
-            stack.Push(4);
-            Console.WriteLine("Enter the target number to search: ");
-            int target;
-            bool validInput = int.TryParse(Console.ReadLine(), out target);
-            if (!validInput) {
-                Console.WriteLine("invalid input");
-                return;
-            }
-            int count = 0;
-            bool found = false;
-            foreach (int i in stack.Reverse())
-            {
-                count++;
-                if (i == target)
-                {
-                    found = true;
-                    Console.WriteLine($"{target} found in {count}");
-                    break;
-                }
-            }
-            if (!found)
-            {
-                Console.WriteLine($"{target} not found");
-            }*/
+            /*            Stack<int> stack = new Stack<int>();
+                        stack.Push(1);
+                        stack.Push(2);
+                        stack.Push(3);
+                        stack.Push(4);
+                        Console.WriteLine("Enter the target number to search: ");
+                        int target;
+                        bool validInput = int.TryParse(Console.ReadLine(), out target);
+                        if (!validInput) {
+                            Console.WriteLine("invalid input");
+                            return;
+                        }
+                        int count = 0;
+                        bool found = false;
+                        foreach (int i in stack.Reverse())
+                        {
+                            count++;
+                            if (i == target)
+                            {
+                                found = true;
+                                Console.WriteLine($"{target} found in {count}");
+                                break;
+                            }
+                        }
+                        if (!found)
+                        {
+                            Console.WriteLine($"{target} not found");
+                        }*/
             #endregion
             #region Q9
-/*            int[] nums1= { 1, 2, 3, 4, 4 };
-            int[] nums2 = { 10, 4, 4 };
-            List<int> result = FindIntersection(nums1,nums2);
-            Console.WriteLine("["+string.Join(",", result)+ "]");*/
+            /*            int[] nums1= { 1, 2, 3, 4, 4 };
+                        int[] nums2 = { 10, 4, 4 };
+                        List<int> result = FindIntersection(nums1,nums2);
+                        Console.WriteLine("["+string.Join(",", result)+ "]");*/
             #endregion
             #region Q10
-            ArrayList numbers = new ArrayList() { 1, 2, 3, 7, 5 };
-            int target = int.Parse(Console.ReadLine());
-            FindSublistWithSum(numbers, target);
+            /*       ArrayList numbers = new ArrayList() { 1, 2, 3, 7, 5 };
+                   int target = int.Parse(Console.ReadLine());
+                   FindSublistWithSum(numbers, target);*/
+            #endregion
+            #region Q11
+            Queue<int> queue = new Queue<int>(new[] { 1,2,3,4,5});
+            int k = int.Parse(Console.ReadLine());
+            ReverseFirstK(queue, k);
+            foreach (int i in queue) {
+                Console.Write(i + " ");
+            }
             #endregion
         }
 
@@ -223,6 +231,25 @@ namespace Advanced2
                 }
             }
             Console.WriteLine($"{target} not found");
+        }
+        #endregion
+        #region Q11
+        static void ReverseFirstK(Queue<int> queue, int k) {
+            if (k > queue.Count || k < 0) {
+                Console.WriteLine("Invalid input");
+                return;
+            }
+           Stack<int> stack = new Stack<int>();
+            for (int i = 0; i < k; i++)
+            {
+                stack.Push(queue.Dequeue());
+            }
+            while (stack.Count > 0) { 
+            queue.Enqueue(stack.Pop());
+            }
+            int move = queue.Count - k;
+            for (int i =0; i< move; i++)
+                queue.Enqueue(queue.Dequeue());
         }
         #endregion
     }

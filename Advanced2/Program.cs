@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 
@@ -117,10 +118,15 @@ namespace Advanced2
             }*/
             #endregion
             #region Q9
-            int[] nums1= { 1, 2, 3, 4, 4 };
+/*            int[] nums1= { 1, 2, 3, 4, 4 };
             int[] nums2 = { 10, 4, 4 };
             List<int> result = FindIntersection(nums1,nums2);
-            Console.WriteLine("["+string.Join(",", result)+ "]");
+            Console.WriteLine("["+string.Join(",", result)+ "]");*/
+            #endregion
+            #region Q10
+            ArrayList numbers = new ArrayList() { 1, 2, 3, 7, 5 };
+            int target = int.Parse(Console.ReadLine());
+            FindSublistWithSum(numbers, target);
             #endregion
         }
 
@@ -193,6 +199,30 @@ namespace Advanced2
                 }
             }
             return list;
+        }
+        #endregion
+        #region Q10
+        static void FindSublistWithSum(ArrayList list, int target) {
+            for (int i = 0; i < list.Count; i++) { 
+            int sum = 0;
+                for (int j = i; j < list.Count; j++) { 
+                sum += (int)list[j];
+                    if (sum == target)
+                    {
+                        for (int k = i; k <= j; k++)
+                        {
+                            Console.Write(list[k]);
+                            if (k < j)
+                                Console.Write(", ");
+                        }
+                        return;
+                    }
+                    else if (sum > target) {
+                        break;
+                    }
+                }
+            }
+            Console.WriteLine($"{target} not found");
         }
         #endregion
     }

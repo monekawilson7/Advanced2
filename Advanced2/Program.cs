@@ -65,11 +65,16 @@ namespace Advanced2
                             Console.WriteLine("Not Balanced");*/
             #endregion
             #region Q5
-            int[] arr = { 11, 5, 2, 11, 2, 7, 1, 11 };
+/*            int[] arr = { 11, 5, 2, 11, 2, 7, 1, 11 };
             int [] result = RemoveDuplicates(arr);
             foreach (int i in result) {
                 Console.WriteLine(i);
-            }
+            }*/
+            #endregion
+            #region Q6
+            List<int> list = new List<int> { 1,2,3,4,5,6,7};
+            RemoveOddNum(list);
+            Console.WriteLine(String.Join(", ",list));
             #endregion
         }
 
@@ -118,6 +123,12 @@ namespace Advanced2
             }
             return new List<int>(uniqueElements).ToArray();
         }
+        #endregion
+        #region Q6
+        static void RemoveOddNum(List<int> list) {
+            list.RemoveAll(number => number % 2 != 0);
+        }
+
         #endregion
     }
 }

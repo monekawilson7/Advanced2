@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Linq;
 
 namespace Advanced2
 {
@@ -77,12 +78,42 @@ namespace Advanced2
                         Console.WriteLine(String.Join(", ",list));*/
             #endregion
             #region Q7
-            Queue<object> queue = new Queue<object>();
-            queue.Enqueue(1);
-            queue.Enqueue("Apple");
-            queue.Enqueue(5.26);
-            foreach (object item in queue) {
-                Console.WriteLine(item);
+            /*            Queue<object> queue = new Queue<object>();
+                        queue.Enqueue(1);
+                        queue.Enqueue("Apple");
+                        queue.Enqueue(5.26);
+                        foreach (object item in queue) {
+                            Console.WriteLine(item);
+                        }*/
+            #endregion
+            #region Q8
+            Stack<int> stack = new Stack<int>();
+            stack.Push(1);
+            stack.Push(2);
+            stack.Push(3);
+            stack.Push(4);
+            Console.WriteLine("Enter the target number to search: ");
+            int target;
+            bool validInput = int.TryParse(Console.ReadLine(), out target);
+            if (!validInput) {
+                Console.WriteLine("invalid input");
+                return;
+            }
+            int count = 0;
+            bool found = false;
+            foreach (int i in stack.Reverse())
+            {
+                count++;
+                if (i == target)
+                {
+                    found = true;
+                    Console.WriteLine($"{target} found in {count}");
+                    break;
+                }
+            }
+            if (!found)
+            {
+                Console.WriteLine($"{target} not found");
             }
             #endregion
         }

@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 
 namespace Advanced2
 {
@@ -24,7 +25,7 @@ namespace Advanced2
                       Console.WriteLine(count);*/
             #endregion
             #region Q2
-            int n = int.Parse(Console.ReadLine());
+           /* int n = int.Parse(Console.ReadLine());
             String[] input = Console.ReadLine().Split();
             int[] arr = Array.ConvertAll(input, int.Parse);
             bool isPalindrome = true;
@@ -36,8 +37,38 @@ namespace Advanced2
                     break;
                 }
             }
-            Console.WriteLine(isPalindrome ? "Yes" : "No");
+            Console.WriteLine(isPalindrome ? "Yes" : "No");*/
             #endregion
+            #region Q3
+            Queue<int> q = new Queue<int>();
+
+            q.Enqueue(10);
+            q.Enqueue(20);
+            q.Enqueue(30);
+            q.Enqueue(40);
+            q.Enqueue(50);
+            Console.WriteLine("Origional");
+            foreach (var item in q) {
+                Console.WriteLine(item);
+            }
+            ReverseQueue(q);
+            Console.WriteLine("/n Reversed Queue: ");
+            foreach (var item in q) {
+                Console.WriteLine(item);
+            }
+            #endregion
+        }
+
+
+        static void ReverseQueue<T>(Queue<T> queue) { 
+        Stack<T> stack = new Stack<T>();
+            while (queue.Count > 0) {
+                stack.Push(queue.Dequeue());
+            }
+            while (stack.Count > 0)
+            {
+                queue.Enqueue(stack.Pop());
+            }
         }
     }
     }
